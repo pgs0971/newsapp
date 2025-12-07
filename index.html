@@ -1,1 +1,135 @@
-<!-- Full index.html placeholder; replace with final content from conversation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KYROS – Major Losses & M&A Intelligence</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body class="light">
+  <header class="app-header">
+    <div class="brand-left">
+      <img src="assets/kyros-logo.png" alt="KYROS" class="logo" />
+      <div class="brand-text">
+        <div class="brand-title">KYROS Intelligence</div>
+        <div class="brand-subtitle">Major Losses &amp; Mergers / Acquisitions</div>
+      </div>
+    </div>
+    <div class="brand-right">
+      <span class="user-label">Curated by</span>
+      <div class="headshot-wrapper">
+        <img src="assets/peter-headshot.png" alt="Peter Shine" class="headshot" />
+      </div>
+      <span class="user-name">Peter Shine</span>
+    </div>
+  </header>
+
+  <section class="toolbar">
+    <div class="toolbar-left">
+      <button id="btn-refresh-all" class="btn primary">Refresh now</button>
+      <button id="btn-auto-refresh" class="btn">Auto-refresh: Off</button>
+    </div>
+    <div class="toolbar-right">
+      <button id="btn-dark-mode" class="btn">Dark Mode</button>
+      <button id="btn-kyros-theme" class="btn">KYROS Theme</button>
+      <button id="btn-layout" class="btn">Layout: Two-column</button>
+      <button id="btn-export-pdf" class="btn secondary">Download PDF</button>
+    </div>
+  </section>
+
+  <main id="layout-container" class="layout-two-col">
+    <!-- Major Losses panel -->
+    <section class="panel" id="panel-losses">
+      <header class="panel-header">
+        <div>
+          <h2>Major Losses</h2>
+          <p class="panel-subtitle">Significant catastrophe &amp; man-made loss events</p>
+        </div>
+        <button id="btn-refresh-losses" class="btn small">Refresh</button>
+      </header>
+
+      <div class="panel-filters">
+        <input
+          id="search-losses"
+          type="text"
+          placeholder="Search titles &amp; summaries..."
+          class="search-input"
+        />
+        <div class="dropdown-row">
+          <select id="filter-losses-year" class="select">
+            <option value="all">Year: All</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+          </select>
+          <select id="filter-losses-month" class="select">
+            <option value="all">Month: All</option>
+            <option value="12">Dec</option>
+            <option value="11">Nov</option>
+            <option value="10">Oct</option>
+          </select>
+          <select id="filter-losses-region" class="select">
+            <option value="all">Region: All</option>
+            <option value="europe">Europe</option>
+            <option value="us">US</option>
+            <option value="asia">Asia</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="losses-status" class="panel-status">Loading latest loss events…</div>
+      <div id="losses-list" class="article-list"></div>
+    </section>
+
+    <!-- M&A panel -->
+    <section class="panel" id="panel-ma">
+      <header class="panel-header">
+        <div>
+          <h2>Mergers &amp; Acquisitions</h2>
+          <p class="panel-subtitle">Insurance &amp; reinsurance M&amp;A activity</p>
+        </div>
+        <button id="btn-refresh-ma" class="btn small">Refresh</button>
+      </header>
+
+      <div class="panel-filters">
+        <input
+          id="search-ma"
+          type="text"
+          placeholder="Search titles &amp; summaries..."
+          class="search-input"
+        />
+        <div class="dropdown-row">
+          <select id="filter-ma-year" class="select">
+            <option value="all">Year: All</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+          </select>
+          <select id="filter-ma-month" class="select">
+            <option value="all">Month: All</option>
+            <option value="12">Dec</option>
+            <option value="11">Nov</option>
+            <option value="10">Oct</option>
+          </select>
+          <select id="filter-ma-region" class="select">
+            <option value="all">Region: All</option>
+            <option value="europe">Europe</option>
+            <option value="us">US</option>
+            <option value="asia">Asia</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="ma-status" class="panel-status">Loading latest M&amp;A news…</div>
+      <div id="ma-list" class="article-list"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Data source: Reinsurance News (public WordPress API)</span>
+    <span>Updated: <span id="last-updated">–</span></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
