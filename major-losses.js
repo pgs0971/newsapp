@@ -1,0 +1,1 @@
+// major-losses function placeholder
